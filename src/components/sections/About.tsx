@@ -17,7 +17,7 @@ export default function About() {
           <ScrollReveal>
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] bg-[var(--color-accent-light)]">
               <Image
-                src="/images/dentist.jpg"
+                src="/dentist.jpg"
                 alt="Portrait of Dr. Sarah Bennett"
                 fill
                 className="object-cover"

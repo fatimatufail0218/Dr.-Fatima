@@ -6,11 +6,13 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { testimonials } from "@/lib/data/testimonials";
 
 const AUTOPLAY_DELAY = 4000;
-const CARD_SPACING = 340;
+const GAP = 32; // equal gap in px between cards
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
   const isHovering = useRef(false);
+  const stageRef = useRef<HTMLDivElement>(null);
   const total = testimonials.length;
 
   const goTo = useCallback(
@@ -29,7 +31,27 @@ export default function Testimonials() {
     return () => clearInterval(interval);
   }, [total]);
 
-  // shortest circular distance from active card, e.g. for 6 items: -2,-1,0,1,2,3(=-3)
+  // measure the stage's width so cards can scale to fill max-w-7xl
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setContainerWidth(entry.contentRect.width);
+      }
+    });
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // card takes ~46% of the container width (so active + two halves of neighbors are visible),
+  // clamped to sensible min/max so it never looks too small or too huge
+  const cardWidth = Math.min(420, Math.max(300, containerWidth * 0.46));
+  const spacing = cardWidth;
+
+  // shortest circular distance from active card
   const circularDistance = (index: number) => {
     let diff = index - activeIndex;
     if (diff > total / 2) diff -= total;
@@ -69,29 +91,33 @@ export default function Testimonials() {
       </div>
 
       <div
-        className="relative mt-16 h-[340px] sm:h-[360px]"
+        className="relative mt-5 h-[340px] sm:h-[380px]"
         onMouseEnter={() => (isHovering.current = true)}
         onMouseLeave={() => (isHovering.current = false)}
       >
-        <div className="relative max-w-7xl mx-auto h-full">
+        <div
+          ref={stageRef}
+          className="relative max-w-7xl mx-auto px-6 md:px-10 h-full"
+        >
           {testimonials.map((t, i) => {
             const distance = circularDistance(i);
             const abs = Math.abs(distance);
             const isActive = distance === 0;
 
             // hide cards that are too far away
-            const visible = abs <= 1;
+            const visible = abs <= 1 && containerWidth > 0;
 
-            const scale = isActive ? 1 : abs === 1 ? 0.85 : 0.72;
-            const opacity = isActive ? 1 : abs === 1 ? 0.55 : 0.25;
-            const translateX = distance * CARD_SPACING;
-            const zIndex = 10 - abs;
+            const scale = isActive ? 1 : 0.85;
+            const opacity = isActive ? 1 : 0.5;
+            const translateX = distance * spacing;
+            const zIndex = isActive ? 10 : 5;
 
             return (
               <div
                 key={t.name}
-                className="absolute top-1/2 left-1/2 w-[300px] sm:w-[340px] transition-all duration-700 ease-out"
+                className="absolute top-1/2 left-1/2 transition-all duration-700 ease-out"
                 style={{
+                  width: cardWidth,
                   transform: `translate(-50%, -50%) translateX(${translateX}px) scale(${scale})`,
                   opacity: visible ? opacity : 0,
                   zIndex,
@@ -99,7 +125,7 @@ export default function Testimonials() {
                 }}
               >
                 <div
-                  className={`rounded-3xl p-8 border transition-colors duration-500 ${
+                  className={`rounded-3xl p-8 sm:p-10 border transition-colors duration-500 ${
                     isActive
                       ? "bg-[var(--color-bg)] border-[var(--color-accent)]/40 shadow-xl shadow-black/[0.06]"
                       : "bg-[var(--color-bg)] border-black/5"
@@ -116,7 +142,7 @@ export default function Testimonials() {
                       <Star key={idx} size={15} fill="currentColor" strokeWidth={0} />
                     ))}
                   </div>
-                  <p className="mt-4 text-[var(--color-text)] leading-relaxed text-[15px]">
+                  <p className="mt-4 text-[var(--color-text)] leading-relaxed text-[15px] sm:text-base">
                     &ldquo;{t.review}&rdquo;
                   </p>
                   <div className="mt-6 pt-5 border-t border-black/5">

@@ -25,6 +25,25 @@ export default function Button({
       : "border border-[var(--color-primary)]/25 text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5 hover:-translate-y-0.5";
 
   if (href) {
+    // external links (mailto:, https://wa.me, or any http link) open in a new tab
+    const isExternal =
+      href.startsWith("mailto:") ||
+      href.startsWith("http://") ||
+      href.startsWith("https://");
+
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${base} ${styles} ${className}`}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={`${base} ${styles} ${className}`}>
         {children}

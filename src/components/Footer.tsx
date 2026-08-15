@@ -10,19 +10,9 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a2b2c] text-white/60 py-12">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="font-serif text-lg text-white">Dr. Sarah Bennett</p>
-
-        <div className="flex flex-wrap gap-6 text-sm">
-          {links.map((l) => (
-            <Link key={l.label} href={l.href} className="hover:text-white transition-colors">
-              {l.label}
-            </Link>
-          ))}
-        </div>
-
-        <p className="text-xs">© {new Date().getFullYear()} Dr. Sarah Bennett. All rights reserved.</p>
+    <footer className="bg-[#0a2b2c] text-white/60 py-5">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-center">
+       <p className="text-xs">© {new Date().getFullYear()} Dr. Fatima Batool. All rights reserved.</p>
       </div>
     </footer>
   );

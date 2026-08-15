@@ -22,22 +22,22 @@ export default function Contact() {
             step toward a smile you love.
           </p>
           <div className="mt-8">
-            <Button href="mailto:hello@drsarahbennett.com">Book a Consultation</Button>
+            <Button href="https://mail.google.com/mail/?view=cm&fs=1&to=drfatimaa.batool@gmail.com&su=Consultation%20Request" className="border-1 border-[#add4db] hover:border-none">Book a Consultation</Button>
           </div>
         </ScrollReveal>
 
         <div className="mt-20 grid md:grid-cols-3 gap-8">
           <ScrollReveal className="flex flex-col items-center text-center gap-3">
             <Mail size={22} className="text-[var(--color-accent)]" />
-            <p className="text-sm text-white/70">hello@drsarahbennett.com</p>
+            <p className="text-sm text-white/70">drfatimaa.batool@gmail.com</p>
           </ScrollReveal>
           <ScrollReveal delay={0.1} className="flex flex-col items-center text-center gap-3">
             <Phone size={22} className="text-[var(--color-accent)]" />
-            <p className="text-sm text-white/70">+1 (555) 123-4567</p>
+            <p className="text-sm text-white/70">+92 (302) 685-1144</p>
           </ScrollReveal>
           <ScrollReveal delay={0.2} className="flex flex-col items-center text-center gap-3">
             <MapPin size={22} className="text-[var(--color-accent)]" />
-            <p className="text-sm text-white/70">123 Wellness Ave, Suite 200</p>
+            <p className="text-sm text-white/70">Gulgasht Colony, Multan, Pakistan.</p>
           </ScrollReveal>
         </div>
 

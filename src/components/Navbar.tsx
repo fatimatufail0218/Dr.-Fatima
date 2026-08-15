@@ -84,7 +84,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:block shrink-0">
-          <Button href="/#contact" className="!px-6 !py-2.5 !text-xs">
+          <Button href="https://mail.google.com/mail/?view=cm&fs=1&to=drfatimaa.batool@gmail.com&su=Consultation%20Request" className="!px-6 !py-2.5 !text-xs">
             Book Consultation
           </Button>
         </div>
@@ -113,7 +113,7 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
-        <Button href="/#contact" className="mt-2 w-full">
+        <Button href="https://mail.google.com/mail/?view=cm&fs=1&to=drfatimaa.batool@gmail.com&su=Consultation%20Request" className="mt-2 w-full">
           Book Consultation
         </Button>
       </div>
