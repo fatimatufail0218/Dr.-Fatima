@@ -7,33 +7,17 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    year: "2019",
-    title: "Dental Degree",
-    place: "University of Health Sciences",
-    description: "Graduated with honors, specializing in restorative and preventive dentistry.",
+    year: "2020–2025",
+    title: "Bachelor of Dental Surgery (BDS)",
+    place: "Bakhtawar Amin Medical & Dental College, Multan",
+    description:
+      "BDS Batch 2020–2024. Due to the COVID-19-related delay in the commencement of academic sessions, the final examinations were held in March 2025.",
   },
   {
-    year: "2020",
-    title: "Clinical Residency",
-    place: "City General Hospital",
-    description: "Completed intensive clinical residency across oral surgery and periodontics.",
-  },
-  {
-    year: "2021",
-    title: "Joined Bright Smile Clinic",
-    place: "Bright Smile Dental Clinic",
-    description: "Began practicing as a general dentist, focusing on patient-centered care.",
-  },
-  {
-    year: "2023",
-    title: "Advanced Cosmetic Training",
-    place: "International Academy of Cosmetic Dentistry",
-    description: "Completed advanced certification in smile design and veneer aesthetics.",
-  },
-  {
-    year: "2025",
-    title: "Specialized Private Practice",
-    place: "Independent Practice",
-    description: "Opened a specialized practice focused on full-mouth rehabilitation and implants.",
+    year: "2025–2026",
+    title: "Clinical House Job",
+    place: "Bakhtawar Amin Medical & Dental College / Teaching Hospital, Multan",
+    description:
+      "Completed a one-year clinical house job from July 2025 to July 2026, gaining hands-on experience across major dental departments and strengthening clinical decision-making and patient care skills.",
   },
 ];

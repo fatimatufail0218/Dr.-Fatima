@@ -1,31 +1,31 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowRight, Monitor, HeartHandshake, UserCheck, ShieldCheck } from "lucide-react";
+import { ArrowRight, Sparkles, HeartHandshake, BookOpen, HandHeart } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import Button from "@/components/ui/Button";
 import ToothModel from "@/components/ToothModel";
 
 const FEATURES = [
   {
-    icon: Monitor,
-    title: "Advanced Technology",
-    description: "Modern equipment for precise treatment.",
+    icon: Sparkles,
+    title: "Attention to Detail",
+    description: "Careful, precise treatment in every step.",
   },
   {
     icon: HeartHandshake,
-    title: "Patient Comfort",
-    description: "A calm, relaxed environment for your comfort.",
+    title: "Patient-First Mindset",
+    description: "Your comfort guides every decision I make.",
   },
   {
-    icon: UserCheck,
-    title: "Expert Care",
-    description: "Personalized care tailored to your needs.",
+    icon: BookOpen,
+    title: "Continuous Learner",
+    description: "Actively training in advanced dental techniques.",
   },
   {
-    icon: ShieldCheck,
-    title: "Trusted Results",
-    description: "Proven outcomes and lasting smiles.",
+    icon: HandHeart,
+    title: "Gentle Approach",
+    description: "Calm, reassuring care at every visit.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function Hero() {
         { opacity: 1, y: 0, duration: 0.6 }
       )
         .fromTo(
-          ".hero-name",
+          ".hero-eyebrow",
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.7 },
           "-=0.25"
@@ -111,23 +111,23 @@ export default function Hero() {
               </span>
             </span>
 
-            {/* personal name - portfolio branding */}
-            <p className="hero-name text-sm font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)] mb-3">
-              Dr. Fatima Batool
+            {/* profession / title - small eyebrow line */}
+            <p className="hero-eyebrow text-sm font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)] mb-3">
+              Dentist &amp; Smile Specialist
             </p>
 
+            {/* the big heading is now her name */}
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.08] text-[var(--color-text)]">
-              <span className="hero-line block">Precision Care.</span>
-              <span className="hero-line block">
-                Confident <span className="text-gradient">Smiles.</span>
-              </span>
+              <span className="hero-line block">Dr. Fatima</span>
+              <span className="hero-line block text-gradient">Batool</span>
             </h1>
 
             <div className="hero-line mt-6 h-[3px] w-14 bg-[var(--color-accent)] rounded-full" />
 
             <p className="hero-sub mt-6 text-lg text-[var(--color-text-muted)] max-w-md leading-relaxed">
-              Advanced dental care with a gentle touch. Focused on your
-              comfort, confidence, and long-term oral health.
+              I&apos;m a dentist dedicated to gentle, precise care — helping
+              every patient feel comfortable, confident, and genuinely cared
+              for at each visit.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
@@ -149,30 +149,32 @@ export default function Hero() {
             {/* true circle backdrop - equal width & height, sized off the smaller dimension */}
             <div className="hero-canvas absolute aspect-square h-[92%] max-w-[92%] rounded-full bg-[var(--color-accent-light)] opacity-80" />
 
-            {/* the tooth */}
-            <div className="hero-canvas relative w-[70%] h-[80%]">
+            {/* the tooth - enlarged */}
+            <div className="hero-canvas relative w-[88%] h-[95%]">
               <ToothModel />
             </div>
 
-            {/* floating stat card - top left */}
+            {/* floating card - top left: degree */}
             <div className="hero-float-card absolute top-4 left-0 sm:left-2 glass rounded-2xl px-5 py-4 shadow-lg">
               <p className="font-serif text-2xl text-[var(--color-primary)]">
-                4.9/5
+                BDS
               </p>
               <p className="text-[11px] text-[var(--color-text-muted)] uppercase tracking-wide">
-                Patient Rating
+                Dental Surgeon
               </p>
             </div>
 
-            {/* floating stat card - bottom right */}
-            <div className="hero-float-card absolute bottom-6 right-0 sm:right-2 glass rounded-2xl px-5 py-4 shadow-lg">
-              <p className="font-serif text-2xl text-[var(--color-primary)]">
-                1,500+
-              </p>
-              <p className="text-[11px] text-[var(--color-text-muted)] uppercase tracking-wide">
-                Smiles Treated
-              </p>
-            </div>
+            
+           {/* decorative deshaped blob - fried-egg style, overlaps the big backdrop circle, bottom right */}
+{/* <div
+  className="hero-float-card absolute bottom-6 right-4 sm:right-10 w-28 h-24 sm:w-36 sm:h-32 bg-[var(--color-primary)] shadow-lg egg-blob"
+/>
+
+<style jsx>{`
+  .egg-blob {
+    border-radius: 58% 42% 68% 32% / 62% 38% 62% 38%;
+  }
+`}</style> */}
 
             {/* decorative dots */}
             <span className="absolute top-10 right-4 w-2.5 h-2.5 rounded-full bg-[var(--color-accent)]" />
@@ -183,19 +185,19 @@ export default function Hero() {
       </div>
 
       {/* features strip with a solid curved blue backdrop */}
-<div className="relative z-10 mt-8 bg-[var(--color-primary)]">
-  {/* decorative wave sits only at the very top edge, same gentle curve on all breakpoints */}
-  <svg
-    className="absolute top-0 inset-x-0 w-full h-14 sm:h-20 -translate-y-[calc(100%-1px)]"
-    viewBox="0 0 1440 100"
-    preserveAspectRatio="none"
-    fill="none"
-  >
-    <path
-      d="M0,55 C240,40 480,70 720,58 C960,46 1200,68 1440,52 L1440,100 L0,100 Z"
-      fill="var(--color-primary)"
-    />
-  </svg>
+      <div className="relative z-10 mt-8 bg-[var(--color-primary)]">
+        {/* decorative wave sits only at the very top edge, same gentle curve on all breakpoints */}
+        <svg
+          className="absolute top-0 inset-x-0 w-full h-14 sm:h-20 -translate-y-[calc(100%-1px)]"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <path
+            d="M0,55 C240,40 480,70 720,58 C960,46 1200,68 1440,52 L1440,100 L0,100 Z"
+            fill="var(--color-primary)"
+          />
+        </svg>
 
         <div className="max-w-7xl mx-auto px-5 md:px-10 pb-5 md:pb-5">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 xl:gap-8 ">

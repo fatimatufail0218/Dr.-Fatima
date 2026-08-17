@@ -18,9 +18,9 @@ export default function Services() {
             return (
               <div
                 key={service.title}
-                className="group rounded-2xl bg-white p-8 border border-black/5 hover:border-[var(--color-accent)]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-2xl bg-white p-8 border border-black/5"
               >
-                <div className="w-12 h-12 rounded-xl bg-[var(--color-accent-light)] flex items-center justify-center text-[var(--color-primary)] group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-accent-light)] flex items-center justify-center text-[var(--color-primary)]">
                   <Icon size={22} />
                 </div>
                 <h3 className="mt-5 font-serif text-xl">{service.title}</h3>

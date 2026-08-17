@@ -23,7 +23,7 @@ export default function Experience() {
             scrollTrigger: {
               trigger: item,
               start: "top 85%",
-              toggleActions: "play none none reverse",
+              once: true,
             },
           }
         );
@@ -35,12 +35,12 @@ export default function Experience() {
         {
           scaleY: 1,
           transformOrigin: "top",
-          ease: "none",
+          duration: 1.2,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top 70%",
-            end: "bottom 80%",
-            scrub: 0.6,
+            once: true,
           },
         }
       );
@@ -68,7 +68,6 @@ export default function Experience() {
                 key={item.year}
                 className="timeline-item relative pl-14 sm:pl-16"
               >
-                {/* dot - same left position + same translate trick, always centered on the line */}
                 <span className="absolute left-5 sm:left-6 top-1 w-3 h-3 -translate-x-1/2 rounded-full bg-[var(--color-accent)] ring-4 ring-[var(--color-accent-light)]" />
 
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">

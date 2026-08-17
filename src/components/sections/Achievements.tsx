@@ -24,14 +24,14 @@ export default function Achievements() {
           {featured.map((item) => (
             <div
               key={item.id}
-              className="group rounded-2xl overflow-hidden bg-white border border-black/5 hover:shadow-lg transition-all duration-300"
+              className="rounded-2xl overflow-hidden bg-white border border-black/5"
             >
               <div className="relative aspect-[3/2] bg-[var(--color-accent-light)]">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>

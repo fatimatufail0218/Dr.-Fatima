@@ -1,10 +1,9 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import ScrollReveal from "@/components/animations/ScrollReveal";
 import { achievements } from "@/lib/data/achievements";
 
 export const metadata: Metadata = {
-  title: "Achievements & Certifications — Dr. Sarah Bennett",
+  title: "Achievements & Certifications — Dr. Fatima Batool",
   description: "Professional certifications, awards, and training.",
 };
 
@@ -21,21 +20,18 @@ export default function AchievementsPage() {
           </h1>
         </div>
 
-        <ScrollReveal
-          stagger={0.08}
-          className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((item) => (
             <div
               key={item.id}
-              className="group rounded-2xl overflow-hidden bg-white border border-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="rounded-2xl overflow-hidden bg-white border border-black/5"
             >
               <div className="relative aspect-[3/2] bg-[var(--color-accent-light)]">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -53,7 +49,7 @@ export default function AchievementsPage() {
               </div>
             </div>
           ))}
-        </ScrollReveal>
+        </div>
       </div>
     </div>
   );
