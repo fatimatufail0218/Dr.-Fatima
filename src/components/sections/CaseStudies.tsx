@@ -23,7 +23,7 @@ export default function CaseStudies() {
           </Button>
         </div>
 
-        <ScrollReveal stagger={0.12} className="mt-14 grid md:grid-cols-3 gap-8">
+        <ScrollReveal stagger={0.12} className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featured.map((cs) => (
             <Link
               key={cs.slug}

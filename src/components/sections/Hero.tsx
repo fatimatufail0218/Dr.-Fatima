@@ -98,9 +98,9 @@ export default function Hero() {
       </div>
 
       <div className="flex-1 flex items-center">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-center w-full">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center w-full">
           {/* left: text content */}
-          <div className="lg:col-span-6">
+          <div className="md:col-span-6">
             <span className="hero-badge inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75" />
@@ -144,48 +144,47 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* right: tooth visual with a true circular backdrop */}
-          <div className="lg:col-span-6 relative h-[460px] sm:h-[540px] lg:h-[600px] flex items-center justify-center">
-            {/* true circle backdrop - equal width & height, sized off the smaller dimension */}
-            <div className="hero-canvas absolute aspect-square h-[92%] max-w-[92%] rounded-full bg-[var(--color-accent-light)] opacity-80" />
+          {/* right: tooth visual */}
+          <div className="md:col-span-6 flex items-center justify-center py-10 md:py-0">
+            {/* inner wrapper - fixed square size per breakpoint, everything below is
+                positioned relative to THIS box, so it always stays anchored to the circle */}
+            <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[350px] md:h-[350px] lg:w-[460px] lg:h-[460px] xl:w-[520px] xl:h-[520px]">
+              {/* true circle backdrop - fills the wrapper exactly, always a perfect circle */}
+              <div className="hero-canvas absolute inset-0 rounded-full bg-[var(--color-accent-light)] opacity-80" />
 
-            {/* the tooth - enlarged */}
-            <div className="hero-canvas relative w-[88%] h-[95%]">
-              <ToothModel />
+              {/* the tooth */}
+              <div className="hero-canvas absolute inset-0 flex items-center justify-center">
+                <div className="relative w-[88%] h-[95%]">
+                  <ToothModel />
+                </div>
+              </div>
+
+              {/* floating card: degree - anchored to the same wrapper,
+                  so it always overlaps the circle's bottom-right edge consistently */}
+              <div className="hero-float-card absolute bottom-[4%] right-[-4%] glass rounded-2xl px-4 py-3 sm:px-5 sm:py-4 shadow-lg">
+                <p className="font-serif text-xl sm:text-2xl text-[var(--color-primary)]">
+                  BDS
+                </p>
+                <p className="text-[10px] sm:text-[11px] text-[var(--color-text-muted)] uppercase tracking-wide">
+                  Dental Surgeon
+                </p>
+              </div>
+
+              {/* decorative dots - positioned as percentages of the wrapper,
+                  so they always sit close to the circle at every breakpoint */}
+              <span className="absolute top-[8%] right-[4%] w-2.5 h-2.5 rounded-full bg-[var(--color-accent)]" />
+              <span className="absolute top-[32%] right-[-2%] w-2 h-2 rounded-full bg-[var(--color-primary)]" />
+              <span className="absolute top-[52%] left-[-3%] w-1.5 h-1.5 rounded-full border border-[var(--color-accent)]" />
+              <span className="absolute top-[16%] left-[-4%] w-1.5 h-1.5 rounded-full border border-[var(--color-accent)]" />
+              <span className="absolute bottom-[18%] left-[-2%] w-2 h-2 rounded-full bg-[var(--color-primary)]" />
+              <span className="absolute bottom-[4%] left-[10%] w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
             </div>
-
-            {/* floating card - top left: degree */}
-            <div className="hero-float-card absolute top-4 left-0 sm:left-2 glass rounded-2xl px-5 py-4 shadow-lg">
-              <p className="font-serif text-2xl text-[var(--color-primary)]">
-                BDS
-              </p>
-              <p className="text-[11px] text-[var(--color-text-muted)] uppercase tracking-wide">
-                Dental Surgeon
-              </p>
-            </div>
-
-            
-           {/* decorative deshaped blob - fried-egg style, overlaps the big backdrop circle, bottom right */}
-{/* <div
-  className="hero-float-card absolute bottom-6 right-4 sm:right-10 w-28 h-24 sm:w-36 sm:h-32 bg-[var(--color-primary)] shadow-lg egg-blob"
-/>
-
-<style jsx>{`
-  .egg-blob {
-    border-radius: 58% 42% 68% 32% / 62% 38% 62% 38%;
-  }
-`}</style> */}
-
-            {/* decorative dots */}
-            <span className="absolute top-10 right-4 w-2.5 h-2.5 rounded-full bg-[var(--color-accent)]" />
-            <span className="absolute bottom-24 left-0 w-2 h-2 rounded-full bg-[var(--color-primary)]" />
-            <span className="absolute top-1/2 left-2 w-1.5 h-1.5 rounded-full border border-[var(--color-accent)]" />
           </div>
         </div>
       </div>
 
       {/* features strip with a solid curved blue backdrop */}
-      <div className="relative z-10 mt-8 bg-[var(--color-primary)]">
+      <div className="relative z-10 mt-8 mt-15 lg:mt-8 bg-[var(--color-primary)]">
         {/* decorative wave sits only at the very top edge, same gentle curve on all breakpoints */}
         <svg
           className="absolute top-0 inset-x-0 w-full h-14 sm:h-20 -translate-y-[calc(100%-1px)]"

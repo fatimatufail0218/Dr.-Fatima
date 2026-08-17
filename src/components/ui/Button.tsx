@@ -21,7 +21,7 @@ export default function Button({
 
   const styles =
     variant === "primary"
-      ? "bg-[var(--color-primary)] text-white hover:bg-[#0a2b2c] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-900/20"
+      ? "bg-[var(--color-primary)] text-white hover:bg-[#04293f] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-900/20"
       : "border border-[var(--color-primary)]/25 text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5 hover:-translate-y-0.5";
 
   if (href) {

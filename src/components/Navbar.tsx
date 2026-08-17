@@ -53,16 +53,13 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-3" : "py-5"
+        scrolled
+          ? "bg-white/70 backdrop-blur-sm shadow-md shadow-[var(--color-accent)]/20 py-3"
+          : "py-5"
       }`}
     >
-      <nav
-        className={`max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between rounded-full transition-all duration-300 ${
-          scrolled
-            ? "bg-white/70 backdrop-blur-sm shadow-md shadow-[var(--color-accent)] py-2.5 px-5 lg:px-6"
-            : "py-1"
-        }`}
-      >
+      {/* inner content stays centered at the same max-width as before */}
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <Link
           href="/#home"
           className="font-serif text-xl md:text-2xl text-[var(--color-primary)] shrink-0"
@@ -101,7 +98,7 @@ export default function Navbar() {
       <div
         ref={menuRef}
         style={{ display: "none" }}
-        className="lg:hidden bg-white/70 backdrop-blur-sm  mx-4 mt-3 rounded-3xl flex-col p-6 gap-5 shadow-xl"
+        className="lg:hidden bg-white/70 backdrop-blur-sm mx-4 mt-3 rounded-3xl flex-col p-6 gap-5 shadow-xl"
       >
         {NAV_LINKS.map((link) => (
           <Link
